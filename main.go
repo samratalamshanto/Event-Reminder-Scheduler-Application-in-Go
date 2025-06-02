@@ -3,6 +3,7 @@ package main
 import (
 	"Reminder_Event_Mail_Scheduler_in_Go/pakages/db"
 	"Reminder_Event_Mail_Scheduler_in_Go/pakages/redis"
+	"Reminder_Event_Mail_Scheduler_in_Go/pakages/router"
 	"fmt"
 	"github.com/gin-gonic/gin"
 	"log"
@@ -11,6 +12,8 @@ import (
 func main() {
 
 	route := gin.Default()
+
+	router.ConfigRoutes(route)
 
 	errDB := redis.ConnectRedis()
 	if errDB != nil {
